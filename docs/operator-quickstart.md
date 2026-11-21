@@ -355,11 +355,11 @@ cd "$REPO"
 npx wrangler deploy
 ```
 
-**この walk では実行していない。** そして **route が指すホストは解決しない**:
+**この walk では実行していない。** そして **route が指すホストは応答しない**:
 
 ```
-a1r0ps01.itonami.app          (none)     ← 宣言された route 1
-air-ops.itonami.app           (none)     ← 宣言された route 2
+a1r0ps01.itonami.app          (wildcard) ← 宣言された route 1。HTTP は 522（2026-11-21）
+air-ops.itonami.app           (wildcard) ← 宣言された route 2。HTTP は 522（2026-11-21）
 mcp.etzhayyim.com               (none)     ← /xrpc/:nsid の中継先
 dispatcher.etzhayyim.com        (none)     ← 未 deploy だった src/app.ts の中継先
 etzhayyim.com                   104.21.51.111 172.67.179.128

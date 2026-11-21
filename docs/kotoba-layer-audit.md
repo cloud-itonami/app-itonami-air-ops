@@ -345,8 +345,8 @@ done
 ```
 
 ```
-a1r0ps01.itonami.app          (none)     ← declared route 1
-air-ops.itonami.app           (none)     ← declared route 2
+a1r0ps01.itonami.app          (wildcard) ← declared route 1。HTTP は 522（2026-11-21）
+air-ops.itonami.app           (wildcard) ← declared route 2。HTTP は 522（2026-11-21）
 mcp.etzhayyim.com               (none)     ← default upstream of the DEPLOYED handler
 dispatcher.etzhayyim.com        (none)     ← default upstream of src/app.ts
 etzhayyim.com                   104.21.51.111 172.67.179.128
