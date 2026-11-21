@@ -72,7 +72,7 @@ kbb --backend sci \
 してから publish する。描いたものに `/xrpc`・`/health`・中継先・wrangler の
 var のキーが 1 つでも含まれていれば、書かずに exit 1 で止まる。
 
-## いま在るもの — 29 ファイル
+## いま在るもの — 30 ファイル
 
 | 面 | ファイル |
 |---|---|
@@ -84,7 +84,7 @@ var のキーが 1 つでも含まれていれば、書かずに exit 1 で止�
 | Worker 設定 | `wrangler.jsonc` |
 | actor 記述子 | `kotodama.jsonld` |
 | **domain library（移行対象外）** | **`kotoba/` 7 ファイル** —— 下記 |
-| 由来・権利・識別 | `NOTICE` / `README.edn` / `migration.edn` / `MIGRATION-TODO.md` |
+| 由来・権利・識別 | `NOTICE` / `README.edn` / `migration.edn` / `MIGRATION-TODO.md` / `blueprint.edn` |
 | 文書 | `README.md` / `docs/operator-quickstart.md` / `docs/kotoba-layer-audit.md` / `docs/adr/*.edn` |
 
 **appview の TypeScript は 0 本、正本言語（`.cljs`/`.cljc`）が 4 本。**
