@@ -45,7 +45,7 @@ export const DISPATCH_BRIEF_INNER_TYPE = "com.etzhayyim.apps.airOps.dispatchBrie
 export const TECH_LOG_INNER_TYPE = "com.etzhayyim.apps.airOps.techLog";
 export const FUEL_ORDER_INNER_TYPE = "com.etzhayyim.apps.airOps.fuelOrder";
 
-export const AIR_OPS_DID_PREFIX = "did:web:air-ops.etzhayyim.com:" as const;
+export const AIR_OPS_DID_PREFIX = "did:web:air-ops.itonami.app:" as const;
 
 // ─── NOTAM (PLAINTEXT, public airspace notice) ──────────────────────
 

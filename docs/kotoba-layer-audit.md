@@ -145,8 +145,8 @@ Delete the check and submit an empty-identifier PIREP:
 await recordNotam(e, { notamId: "A1", location: "RJTT", notamType: "RWY", effectiveFrom: "…" });
 await submitPirep(e, { pirepId: "", flightNo: "", location: "RJTT" });
 // → { status: "submitted",
-//     pirepUri: "at://did:web:air-ops.etzhayyim.com/com.etzhayyim.apps.airOps.pirep/pirep-",
-//     did: "did:web:air-ops.etzhayyim.com:pirep:", pirepId: "" }
+//     pirepUri: "at://did:web:air-ops.itonami.app/com.etzhayyim.apps.airOps.pirep/pirep-",
+//     did: "did:web:air-ops.itonami.app:pirep:", pirepId: "" }
 // listPireps(e).total === 1   — an anonymous PIREP, in the store, in the rollup
 ```
 
@@ -339,21 +339,21 @@ enforcement.
 ## §8 ⚠ Nothing this app declares or calls resolves (re-measured 2026-08-18: unchanged)
 
 ```bash
-for h in a1r0ps01.etzhayyim.com air-ops.etzhayyim.com mcp.etzhayyim.com dispatcher.etzhayyim.com etzhayyim.com; do
+for h in a1r0ps01.itonami.app air-ops.itonami.app mcp.etzhayyim.com dispatcher.etzhayyim.com etzhayyim.com; do
   printf '%-28s %s\n' "$h" "$(dig +short "$h" | tr '\n' ' ')"
 done
 ```
 
 ```
-a1r0ps01.etzhayyim.com          (none)     ← declared route 1
-air-ops.etzhayyim.com           (none)     ← declared route 2
+a1r0ps01.itonami.app          (wildcard) ← declared route 1。HTTP は 522（2026-11-21）
+air-ops.itonami.app           (wildcard) ← declared route 2。HTTP は 522（2026-11-21）
 mcp.etzhayyim.com               (none)     ← default upstream of the DEPLOYED handler
 dispatcher.etzhayyim.com        (none)     ← default upstream of src/app.ts
 etzhayyim.com                   104.21.51.111 172.67.179.128
 ```
 
 The apex resolves and the zone is on Cloudflare (`everton`/`vivienne.ns.cloudflare.com`),
-so this is a real absence and not a broken resolver. `curl https://air-ops.etzhayyim.com/`
+so this is a real absence and not a broken resolver. `curl https://air-ops.itonami.app/`
 returns nothing (`000`). Both declared routes are unrouted, and even if the worker were
 deployed, its default upstream has no address — every forwarded call would fail before
 reaching an MCP router.
