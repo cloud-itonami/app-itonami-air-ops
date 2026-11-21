@@ -25,9 +25,12 @@
 
 (def root (or (first (remove #(str/starts-with? % "--") *command-line-args*)) "."))
 
+;; JUN-1410 (2026-11-21): the did:web host and the wrangler routes moved to itonami.app.
+;; kotoba/src/types.ts, kotoba/test/air-ops.test.ts, kotodama.jsonld diverged from upstream ON PURPOSE; the hashes and byte totals pinned below are the
+;; new content.
 (def claims
   {:tracked-files 29
-   :inherited-bytes 45457          ; the 12 inherited files still carried unchanged
+   :inherited-bytes 45451          ; the 12 inherited files still carried unchanged
    :svelte-artifacts 0             ; no .svelte / svelte.config / svelte-dir file survives
    :sveltekit-compat-flags 0       ; nodejs_compat / nodejs_als were adapter-cloudflare's
    :appview-ts-files 0             ; TypeScript OUTSIDE kotoba/ -- the appview's
@@ -54,12 +57,12 @@
    "NOTICE"                     "9d3bd5678f857c647a465987cd8538580215416648991fd9de47e6dc648544f0"
    "README.edn"                 "c43b590720eb4ce4c7f4aad0209a1621b84eb50b5df13faace4037f164d3d76d"
    "migration.edn"              "0f7fcaef8ac675b020a23b9ef9ec095e906c4d77d73e9e6956d1df8039d19c59"
-   "kotodama.jsonld"            "1cc88bf63e54b9e70e8c2105301a3b1354831222341739de3b3a20d0e69c074b"
+   "kotodama.jsonld"            "d49374af1e16e19d826cb16990a70b3862d38912599b8c17aeeeaf95507ccb03"
    "kotoba/package.json"        "af7920e8cd902a4accc9f9fbcd946b930f2ad5e3b523e657268ee62d4ac25fac"
    "kotoba/src/index.ts"        "8b2ead23b2bb343aaf6d98ea2c0bc74847646660c48bd551c0ca089375a90f4c"
    "kotoba/src/registry.ts"     "9a4d8bdc3a5e004452c836c2ae5f9523d4b4cece6b4da466fb93ef01a3a20539"
-   "kotoba/src/types.ts"        "d160a369d8fe20a3f3fcf241ca3d0c211c960caf6ec8039b0dee2e230a2a9763"
-   "kotoba/test/air-ops.test.ts" "f2824e58127e1a135c4fc3463c4a2c5f0dc0bf1e1efae39e6f405a0ea7b47c25"
+   "kotoba/src/types.ts"        "422ad211d6c4432b680565e59e30495455869d09f96bc3239f6c9e3d97658b74"
+   "kotoba/test/air-ops.test.ts" "6022650d65c4cda30323d1957f2734d9e0f75c276b903727df75113094a77996"
    "kotoba/tsconfig.json"       "95a429e51d6162cb7205b603f745e7604d93ffbb1ea6c346e5c6215a79ae541e"
    "kotoba/vitest.config.ts"    "f82a551ef4da1c9cbf17985a3bee96eee450a3e4a46bff0d96c6150263121eff"})
 

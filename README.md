@@ -170,8 +170,8 @@ shadow は未宣言・改名された var を **WARNING** として扱い **exit
 
 | ホスト | 役割 | DNS |
 |---|---|---|
-| `air-ops.etzhayyim.com` | 公開ホスト（wrangler の route） | **NXDOMAIN** |
-| `a1r0ps01.etzhayyim.com` | 同（nanoid 側） | **NXDOMAIN** |
+| `air-ops.itonami.app` | 公開ホスト（wrangler の route） | 解決する。応答は **522**（2026-11-21 実測） |
+| `a1r0ps01.itonami.app` | 同（nanoid 側） | 解決する。応答は **522**（2026-11-21 実測） |
 | `mcp.etzhayyim.com` | `/xrpc/:nsid` の中継先 | **NXDOMAIN** |
 | `dispatcher.etzhayyim.com` | 未 deploy の `src/app.ts` の中継先 | **NXDOMAIN** |
 
@@ -214,3 +214,14 @@ npx --yes kbb --backend sci scripts/verify-docs-claims.cljk .     # <dir> は先
 
 exit 0 = 全一致 / 1 = 食い違い / **2 = 判定できなかった**（0 と区別する）。
 テスト・ビルド・smoke は `docs/operator-quickstart.md`。
+
+## upstream からの分岐（2026-11-21、JUN-1410）
+
+ドメインを `itonami.app` に統一する決定に合わせて、wrangler の route と `did:web` の識別子を
+`etzhayyim.com` から `itonami.app` へ移した。この app は未 deploy で、旧い識別子が解決したことは一度も無い。
+新しいホスト名（`a1r0ps01.itonami.app`、`air-ops.itonami.app`）は `itonami.app` のワイルドカードで名前が引けるが、
+Worker が bind されていないので応答は 522 になる（2026-11-21 実測）。
+
+upstream の byte と一致しなくなったファイル: `kotoba/src/types.ts`、`kotoba/test/air-ops.test.ts`、`kotodama.jsonld`。
+検証器（`scripts/`）の sha256 と byte 数は新しい内容に合わせてある。
+変えていないもの: ほかのサービスのホスト名、lexicon の名前空間、`docs/adr/`（当時の記録）。
